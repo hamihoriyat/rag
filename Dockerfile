@@ -8,7 +8,7 @@ RUN mkdir -p /code/data
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-ENV OPENAI_API_KEY ""
+ENV OPENAI_API_KEY "sk-proj-LokTBGdKs0AWipc48pRxT3BlbkFJsTkko50QPIB1YZwMgwum"
 
 WORKDIR /code/app
 
