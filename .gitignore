@@ -5,3 +5,4 @@ data/
 prompt_example.txt
 db/**
 documents/*.pdf
+venv
