@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl">
     <head>
-        <title>Chat With RAG chatbot</title>
+        <title>گفت و گو با چت بات مباحث ساختمانی</title>
         <link rel="stylesheet" href="{{ url_for('static', path='/chatting.css') }}" />
     </head>
     <body>
-        <h1>Chat With RAG chatbot</h1>
+        <h1>چت به وسیله داکیومنت های آپلود شده </h1>
         {% if message %}
-            <div class="message">{{ message }}</div>
+            <div class="message" dir="rtl">{{ message }}</div>
             <br></br>
         {% endif %}
         <form action="" onsubmit="sendMessage(event)">
-            <textarea rows="7" cols="45" id="messageText" name="messageText" autocomplete="off"></textarea>
+            <textarea  rows="7" cols="45" id="messageText" name="messageText" autocomplete="off"></textarea>
             <p></p>
             <button>Send</button>
         </form>
         <ul id='messages'>
         </ul>
         <script>
-            var ws = new WebSocket("ws://localhost:8000/chatting");
+            var ws = new WebSocket("ws://185.236.38.67:8134/chatting");
             ws.onmessage = function(event) {
                 var messages = document.getElementById('messages')
                 var message = document.createElement('li')

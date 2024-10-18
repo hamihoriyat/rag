@@ -2,7 +2,9 @@ from fastapi import FastAPI, File, UploadFile, Request, WebSocket, status, Backg
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from langchain_openai import ChatOpenAI
+# from langchain import ChatOpenAI, OpenAIEmbeddings 
+from langchain_community.chat_models import ChatOpenAI
+#from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.chat_message_histories import ChatMessageHistory
@@ -20,10 +22,10 @@ templates = Jinja2Templates(directory = "../templates")
 app = FastAPI()
 app.mount("/static", StaticFiles(directory = "../static"), name = "static")
 
-llm = ChatOpenAI(model = "gpt-4o-mini", temperature = 0.6)
+llm = ChatOpenAI(model = "gpt-4o-mini", temperature = 0.4)
 # llm = ChatOpenAI(model = "gpt-4o", temperature = 0.6)
-embedding = OpenAIEmbeddings(model = "text-embedding-3-large",
-                             dimensions = 1536)
+embedding = OpenAIEmbeddings(model = "text-embedding-3-large")
+                           #  dimensions = 1536)
 
 @app.get("/", response_class = HTMLResponse)
 def return_homepage(request: Request):
